@@ -50,7 +50,7 @@ public class ParametroService {
 			
 			List<Parametro> listaLike = new ArrayList<>();
 			
-			listaLike=iParametroRepo.getActosLike(nombre);
+			listaLike=iParametroRepo.getParametrosLike(nombre);
 			
 			return listaLike;
 			
@@ -60,6 +60,6 @@ public class ParametroService {
 		 listaByCatalogo=iParametroRepo.getParametrosByCatalogo(idCatalogo);
 		 return listaByCatalogo;
 		 
-	 }
+	 }	 
 
 }

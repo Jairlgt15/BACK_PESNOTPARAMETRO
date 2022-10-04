@@ -1,6 +1,7 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICatalogoRepo;
 
 
@@ -45,9 +47,15 @@ public class CatalogoService {
             return false;
         }
     }
-	public List<Catalogo> listarCatalogosActivos(String idEstado){
-		return icatalagoDAO.getAllActives(idEstado);
+	public List<Catalogo> listarCatalogosActivos(){
+		return icatalagoDAO.getAllActives();
 	}
+	 public List<Catalogo> getCatalogosLike(String idCatalogo){
+		 List<Catalogo> listaLikeCatalogo = new ArrayList<>();
+		 listaLikeCatalogo=icatalagoDAO.getCatalogosLike(idCatalogo);
+		 return listaLikeCatalogo;
+		 
+	 }	 
 	
 
 }

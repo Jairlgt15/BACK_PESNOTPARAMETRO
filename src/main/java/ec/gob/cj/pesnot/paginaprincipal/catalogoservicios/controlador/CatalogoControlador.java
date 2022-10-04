@@ -31,9 +31,9 @@ public class CatalogoControlador{
 	public List<Catalogo> listarCatalogos() {
 		return catalagoSrvicesImp.listarCatalogos();
 	}
-	@GetMapping("/catalogosActivos/{id}")
-	public List<Catalogo> listarCatalogosActivos(@PathVariable("id") String id) {
-		return catalagoSrvicesImp.listarCatalogosActivos(id);
+	@GetMapping("/catalogosActivos")
+	public List<Catalogo> listarCatalogosActivos() {
+		return catalagoSrvicesImp.listarCatalogosActivos();
 	}
 
 	@PostMapping("/save")
@@ -45,6 +45,10 @@ public class CatalogoControlador{
 	@GetMapping("/catalogos/{id}")
 	public Optional<Catalogo> obtenerUsuarioPorId(@PathVariable("id") BigDecimal id) {
 		return catalagoSrvicesImp.catalogoById(id);
+	}
+	@GetMapping("/catalogos/like/{likeNombre}")
+	public List<Catalogo> obtenerUsuarioPorId(@PathVariable("likeNombre") String nombre) {
+		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
 
 

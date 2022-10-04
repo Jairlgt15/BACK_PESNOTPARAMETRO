@@ -16,28 +16,26 @@ import javax.persistence.Table;
 public class Parametro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="IDPARAMETRO")
+	@Column(name="IDPARAMETROCATALOGO")
 	private BigDecimal idParametro;
 	
 
 	@Column(name="IDCATALOGO")
 	private BigDecimal idCatalogo;
-	@Column(name="NOMBRE")
-	private String nombre;
-	@Column(name="NUMERO")
+	@Column(name="NUMEROVERSIONPARAMETROCATALOGO")
 	private BigDecimal numero;
-	@Column(name="TEXTO")
-	private String texto;
-	@Column(name="FECHA")
+	@Column(name="DESCRIPCIONPARAMETROCATALOGO")
+	private String descripcion;
+	@Column(name="FECHAPARAMETROCATALOGO")
 	private Date fecha;
-	@Column(name="FECHAINICIO")
+	@Column(name="FECHAINICIOPARAMETROCATALOGO")
 	private Date fechaInicio;
-	@Column(name="FECHAFIN")
+	@Column(name="FECHAFINPARAMETROCATALOGO")
 	private Date fechaFin;
-	@Column(name="IDESTADO")
-	private Long idEstado;
-	@Column(name="OBSERVACION")
-	private String observacion;
+	@Column(name="ESTADOACTIVO")
+	private boolean estadoActivo;
+	@Column(name="ESTADOPARAMETROCATALOGO")
+	private boolean estadoParametroCatalogo;
 	
 	
 	
@@ -45,92 +43,143 @@ public class Parametro {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 
-	public Parametro(BigDecimal idParametro, BigDecimal idCatalogo, String nombre, BigDecimal numero, String texto,
-			Date fecha, Date fechaInicio, Date fechaFin, Long idEstado, String observacion) {
+
+
+	public Parametro(BigDecimal idParametro, BigDecimal idCatalogo, BigDecimal numero, String descripcion, Date fecha,
+			Date fechaInicio, Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo) {
 		super();
 		this.idParametro = idParametro;
 		this.idCatalogo = idCatalogo;
-		this.nombre = nombre;
 		this.numero = numero;
-		this.texto = texto;
+		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.idEstado = idEstado;
-		this.observacion = observacion;
+		this.estadoActivo = estadoActivo;
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
 	}
+
 
 
 	public BigDecimal getIdParametro() {
 		return idParametro;
 	}
+
+
+
 	public void setIdParametro(BigDecimal idParametro) {
 		this.idParametro = idParametro;
 	}
+
+
+
 	public BigDecimal getIdCatalogo() {
 		return idCatalogo;
 	}
+
+
+
 	public void setIdCatalogo(BigDecimal idCatalogo) {
 		this.idCatalogo = idCatalogo;
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+
+
+
 	public BigDecimal getNumero() {
 		return numero;
 	}
+
+
+
 	public void setNumero(BigDecimal numero) {
 		this.numero = numero;
 	}
-	public String getTexto() {
-		return texto;
+
+
+
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setTexto(String texto) {
-		this.texto = texto;
+
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
+
+
+
 	public Date getFecha() {
 		return fecha;
 	}
+
+
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
+
+
 	public Date getFechaInicio() {
 		return fechaInicio;
 	}
+
+
+
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
+
+
+
 	public Date getFechaFin() {
 		return fechaFin;
 	}
+
+
+
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	public Long getIdEstado() {
-		return idEstado;
+
+
+
+	public boolean isEstadoActivo() {
+		return estadoActivo;
 	}
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
+
+
+
+	public void setEstadoActivo(boolean estadoActivo) {
+		this.estadoActivo = estadoActivo;
 	}
-	public String getObservacion() {
-		return observacion;
+
+
+
+	public boolean isEstadoParametroCatalogo() {
+		return estadoParametroCatalogo;
 	}
-	public void setObservacion(String observacion) {
-		this.observacion = observacion;
+
+
+
+	public void setEstadoParametroCatalogo(boolean estadoParametroCatalogo) {
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
 	}
+
 
 
 	@Override
 	public String toString() {
-		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + idCatalogo + ", nombre=" + nombre
-				+ ", numero=" + numero + ", texto=" + texto + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio
-				+ ", fechaFin=" + fechaFin + ", idEstado=" + idEstado + ", observacion=" + observacion + "]";
+		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + idCatalogo + ", numero=" + numero
+				+ ", descripcion=" + descripcion + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
+				+ "]";
 	}
+	
+	
+
 	
 	
 

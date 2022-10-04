@@ -19,17 +19,17 @@ public class Catalogo {
 	private BigDecimal id;
 	@Column(name = "NOMBRE")
 	private String nombre;
-	@Column(name = "VALOREXTRA")
-	private String valor;
-	@Column(name = "IDESTADO")
-	private Long idEstado;
-	
+	@Column(name = "ESTADOCATALAGO")
+	private boolean estadoCatalogo;
+	@Column(name = "ESTADOACTIVO")
+	private boolean estadoactivo;
+		
 	
 	public Catalogo(String nombre, String valor, Long idEstado) {
 		super();
 		this.nombre = nombre;
-		this.valor = valor;
-		this.idEstado = idEstado;
+		this.estadoCatalogo = true;
+		this.estadoactivo= true;
 	}
 	public Catalogo() {
 
@@ -46,22 +46,25 @@ public class Catalogo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getValor() {
-		return valor;
+	public boolean isEstadoCatalogo() {
+		return estadoCatalogo;
 	}
-	public void setValor(String valor) {
-		this.valor = valor;
+	public void setEstadoCatalogo(boolean estadoCatalogo) {
+		this.estadoCatalogo = estadoCatalogo;
 	}
-	public Long getIdEstado() {
-		return idEstado;
+	public boolean isEstadoactivo() {
+		return estadoactivo;
 	}
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
+	public void setEstadoactivo(boolean estadoactivo) {
+		this.estadoactivo = estadoactivo;
 	}
 	@Override
 	public String toString() {
-		return "Catalogo [id=" + id + ", nombre=" + nombre + ", valor=" + valor + ", idEstado=" + idEstado + "]";
+		return "Catalogo [id=" + id + ", nombre=" + nombre + ", estadoCatalogo=" + estadoCatalogo + ", estadoactivo="
+				+ estadoactivo + "]";
 	}
+	
+
 	
 	
 

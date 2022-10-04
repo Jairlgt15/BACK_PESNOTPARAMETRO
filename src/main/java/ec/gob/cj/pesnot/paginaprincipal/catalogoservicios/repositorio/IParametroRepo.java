@@ -17,8 +17,8 @@ public interface IParametroRepo extends JpaRepository<Parametro,BigDecimal>{
 	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo")
 	List<Parametro> getParametrosByCatalogo(@Param("idCatalogo") String idCatalogo);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.nombre LIKE :nombre%")
-	List<Parametro> getActosLike(@Param("nombre") String nombre);
+	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.descripcionparametrocatalogo LIKE :nombre%")
+	List<Parametro> getParametrosLike(@Param("nombre") String nombre);
 	
 
 
