@@ -17,6 +17,9 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 public interface ICatalogoRepo extends JpaRepository<Catalogo,BigDecimal> {
 	
 	@Query(nativeQuery = true,value="	SELECT * FROM CATALOGO where IDESTADO=:idEstado")
-	List<Catalogo> getAllActives(@Param("idEstado") String idEstado);	
+	List<Catalogo> getAllActives(@Param("idEstado") String idEstado);
+	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO C WHERE C.nombre LIKE :nombre%")
+	List<Catalogo> getCatalogosLike(@Param("nombre") String nombre);
+	
 
 }

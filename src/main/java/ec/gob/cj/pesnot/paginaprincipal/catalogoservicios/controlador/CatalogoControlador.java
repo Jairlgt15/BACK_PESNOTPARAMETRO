@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
+import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CatalogoService;
 
 
@@ -34,6 +35,10 @@ public class CatalogoControlador{
 	@GetMapping("/catalogosActivos/{id}")
 	public List<Catalogo> listarCatalogosActivos(@PathVariable("id") String id) {
 		return catalagoSrvicesImp.listarCatalogosActivos(id);
+	}
+	@GetMapping("/catalogos/like/{nombre}")
+	public List<Catalogo> getCatalogosLike(@PathVariable ("nombre") String nombre) {
+		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
 
 	@PostMapping("/save")
