@@ -28,7 +28,7 @@ public class CatalogoService {
 	}
 
 
-	public Optional<Catalogo> catalogoById(BigDecimal idEntrante) {
+	public Optional<Catalogo> catalogoById(Long idEntrante) {
 		//El opcional me maneja si es que no encuentra nada 
 		
 		return icatalagoDAO.findById(idEntrante);
@@ -39,7 +39,7 @@ public class CatalogoService {
 		return null;
 	}
 
-	 public boolean eliminar(BigDecimal idClienteAEliminar) {
+	 public boolean eliminar(Long idClienteAEliminar) {
         try{
           icatalagoDAO.deleteById(idClienteAEliminar);
             return true;

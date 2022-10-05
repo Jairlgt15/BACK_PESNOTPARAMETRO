@@ -43,17 +43,17 @@ public class CatalogoControlador{
 	}
 
 	@GetMapping("/catalogos/{id}")
-	public Optional<Catalogo> obtenerUsuarioPorId(@PathVariable("id") BigDecimal id) {
+	public Optional<Catalogo> obtenerCatalogosPorId(@PathVariable("id") Long id) {
 		return catalagoSrvicesImp.catalogoById(id);
 	}
 	@GetMapping("/catalogos/like/{likeNombre}")
-	public List<Catalogo> obtenerUsuarioPorId(@PathVariable("likeNombre") String nombre) {
+	public List<Catalogo> obtenerActosLike(@PathVariable("likeNombre") String nombre) {
 		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
 
 
 	@DeleteMapping("/catalogos/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") BigDecimal id){
+	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = catalagoSrvicesImp.eliminar(id);
 	        if (ok){
 	            return "Se eliminó el usuario con id " + id;

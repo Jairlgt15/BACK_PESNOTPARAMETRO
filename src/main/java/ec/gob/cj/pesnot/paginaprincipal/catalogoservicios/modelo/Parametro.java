@@ -35,6 +35,10 @@ public class Parametro {
 	private boolean estadoActivo;
 	@Column(name="ESTADOPARAMETROCATALOGO")
 	private boolean estadoParametroCatalogo;
+	@Column(name="NOMBREPARAMETRO")
+	private String nombreParametro;
+	@Column(name="VALORPARAMETROCATALOGO")
+	private Long valorParametro;
 	
 	
 	
@@ -49,8 +53,15 @@ public class Parametro {
 	
 
 
+
+
+
+
+
+
 	public Parametro(Long idParametro, Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
-			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo) {
+			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
+			Long valorParametro) {
 		super();
 		this.idParametro = idParametro;
 		this.idCatalogo = idCatalogo;
@@ -61,10 +72,9 @@ public class Parametro {
 		this.fechaFin = fechaFin;
 		this.estadoActivo = estadoActivo;
 		this.estadoParametroCatalogo = estadoParametroCatalogo;
+		this.nombreParametro = nombreParametro;
+		this.valorParametro = valorParametro;
 	}
-
-
-
 
 
 
@@ -192,8 +202,22 @@ public class Parametro {
 	public void setEstadoParametroCatalogo(boolean estadoParametroCatalogo) {
 		this.estadoParametroCatalogo = estadoParametroCatalogo;
 	}
+	
+	public String getNombreParametro() {
+		return nombreParametro;
+	}
 
+	public void setNombreParametro(String nombreParametro) {
+		this.nombreParametro = nombreParametro;
+	}
 
+	public Long getValorParametro() {
+		return valorParametro;
+	}
+
+	public void setValorParametro(Long valorParametro) {
+		this.valorParametro = valorParametro;
+	}
 
 	@Override
 	public String toString() {
@@ -202,10 +226,6 @@ public class Parametro {
 				+ fechaFin + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
 				+ "]";
 	}
-	
-	
-
-	
 	
 
 }
