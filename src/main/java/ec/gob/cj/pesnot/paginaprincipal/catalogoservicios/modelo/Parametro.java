@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -17,13 +16,13 @@ public class Parametro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDPARAMETROCATALOGO")
-	private BigDecimal idParametro;
+	private Long idParametro;
 	
 
 	@Column(name="IDCATALOGO")
-	private BigDecimal idCatalogo;
+	private Long idCatalogo;
 	@Column(name="NUMEROVERSIONPARAMETROCATALOGO")
-	private BigDecimal numero;
+	private Long numero;
 	@Column(name="DESCRIPCIONPARAMETROCATALOGO")
 	private String descripcion;
 	@Column(name="FECHAPARAMETROCATALOGO")
@@ -43,11 +42,15 @@ public class Parametro {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
 
 
-	public Parametro(BigDecimal idParametro, BigDecimal idCatalogo, BigDecimal numero, String descripcion, Date fecha,
-			Date fechaInicio, Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo) {
+	
+
+
+	public Parametro(Long idParametro, Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo) {
 		super();
 		this.idParametro = idParametro;
 		this.idCatalogo = idCatalogo;
@@ -62,39 +65,61 @@ public class Parametro {
 
 
 
-	public BigDecimal getIdParametro() {
+
+
+
+
+	public Long getIdParametro() {
 		return idParametro;
 	}
 
 
 
-	public void setIdParametro(BigDecimal idParametro) {
+
+
+
+	public void setIdParametro(Long idParametro) {
 		this.idParametro = idParametro;
 	}
 
 
 
-	public BigDecimal getIdCatalogo() {
+
+
+
+	public Long getIdCatalogo() {
 		return idCatalogo;
 	}
 
 
 
-	public void setIdCatalogo(BigDecimal idCatalogo) {
+
+
+
+	public void setIdCatalogo(Long idCatalogo) {
 		this.idCatalogo = idCatalogo;
 	}
 
 
 
-	public BigDecimal getNumero() {
+
+
+
+	public Long getNumero() {
 		return numero;
 	}
 
 
 
-	public void setNumero(BigDecimal numero) {
+
+
+
+	public void setNumero(Long numero) {
 		this.numero = numero;
 	}
+
+
+
 
 
 

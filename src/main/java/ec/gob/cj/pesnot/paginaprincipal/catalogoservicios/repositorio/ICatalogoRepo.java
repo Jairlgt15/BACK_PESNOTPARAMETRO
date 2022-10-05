@@ -11,7 +11,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 
 @Repository
 public interface ICatalogoRepo extends JpaRepository<Catalogo,BigDecimal> {

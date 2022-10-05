@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo;
 
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +15,7 @@ public class Catalogo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDCATALOGO")
-	private BigDecimal id;
+	private Long id;
 	@Column(name = "NOMBRE")
 	private String nombre;
 	@Column(name = "ESTADOCATALAGO")
@@ -34,10 +33,10 @@ public class Catalogo {
 	public Catalogo() {
 
 	}
-	public BigDecimal getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(BigDecimal id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {
