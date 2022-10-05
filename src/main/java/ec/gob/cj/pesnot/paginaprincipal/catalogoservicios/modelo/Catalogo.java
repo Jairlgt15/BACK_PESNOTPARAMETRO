@@ -21,18 +21,22 @@ public class Catalogo {
 	@Column(name = "ESTADOCATALAGO")
 	private boolean estadoCatalogo;
 	@Column(name = "ESTADOACTIVO")
-	private boolean estadoactivo;
-		
+	private boolean estadoActivo;
 	
-	public Catalogo(String nombre, String valor, Long idEstado) {
-		super();
-		this.nombre = nombre;
-		this.estadoCatalogo = true;
-		this.estadoactivo= true;
-	}
+	
 	public Catalogo() {
-
+		super();
+		// TODO Auto-generated constructor stub
 	}
+
+	public Catalogo(Long id, String nombre, boolean estadoCatalogo, boolean estadoActivo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.estadoCatalogo = estadoCatalogo;
+		this.estadoActivo = estadoActivo;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,20 +55,18 @@ public class Catalogo {
 	public void setEstadoCatalogo(boolean estadoCatalogo) {
 		this.estadoCatalogo = estadoCatalogo;
 	}
-	public boolean isEstadoactivo() {
-		return estadoactivo;
+	public boolean isEstadoActivo() {
+		return estadoActivo;
 	}
-	public void setEstadoactivo(boolean estadoactivo) {
-		this.estadoactivo = estadoactivo;
+	public void setEstadoActivo(boolean estadoActivo) {
+		this.estadoActivo = estadoActivo;
 	}
 	@Override
 	public String toString() {
-		return "Catalogo [id=" + id + ", nombre=" + nombre + ", estadoCatalogo=" + estadoCatalogo + ", estadoactivo="
-				+ estadoactivo + "]";
+		return "Catalogo [id=" + id + ", nombre=" + nombre + ", estadoCatalogo=" + estadoCatalogo + ", estadoActivo="
+				+ estadoActivo + "]";
 	}
 	
-
 	
 	
-
 }
