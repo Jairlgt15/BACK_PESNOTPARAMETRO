@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 //debemos mapear la clase a public para hacer el ejecutable
@@ -36,9 +37,7 @@ public class CatalogoServiceTest {
         //el assert crea un valor esperado
         System.out.println(listaCatalogosActual);
         assertNotNull(listaCatalogosActual);
-
-
-
+        assertThat(listaCatalogosActual).size().isGreaterThan(0);
     }
 
     @Test
@@ -47,11 +46,14 @@ public class CatalogoServiceTest {
         Catalogo catalogo= new Catalogo("provincia",true,true);
         Catalogo actual= repo.save(catalogo);
         assertThat(actual).isNotNull();
-
     }
 
     @Test
     void catalogoById() {
+        Number numero = 5;
+        Long numeroD = new Long(numero.toString());
+        Optional<Catalogo> catalogo = repo.findById(numeroD);
+        assertThat(catalogo.get().getId()).isEqualTo(numeroD);
     }
 
     @Test
