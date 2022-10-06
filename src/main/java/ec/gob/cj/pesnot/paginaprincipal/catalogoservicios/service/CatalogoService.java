@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICatalogoR
 
 
 @Service
+@AllArgsConstructor
 public class CatalogoService {
 	@Autowired
 	ICatalogoRepo icatalagoDAO;
