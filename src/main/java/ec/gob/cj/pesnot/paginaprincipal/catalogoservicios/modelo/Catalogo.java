@@ -36,6 +36,12 @@ public class Catalogo {
 		this.estadoCatalogo = estadoCatalogo;
 		this.estadoActivo = estadoActivo;
 	}
+	public Catalogo( String nombre, boolean estadoCatalogo, boolean estadoActivo) {
+		super();
+		this.nombre = nombre;
+		this.estadoCatalogo = estadoCatalogo;
+		this.estadoActivo = estadoActivo;
+	}
 	
 	public Long getId() {
 		return id;
