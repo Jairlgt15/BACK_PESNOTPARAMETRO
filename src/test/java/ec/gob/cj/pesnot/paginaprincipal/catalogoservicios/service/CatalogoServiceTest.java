@@ -26,7 +26,6 @@ public class CatalogoServiceTest {
     //antes de cada test
     @BeforeEach
     void setUp() {
-        CatalogoService service = new CatalogoService(repo);
     }
 
     @AfterEach
@@ -34,7 +33,7 @@ public class CatalogoServiceTest {
     }
 
     @Test
-    @DisplayName("El test debe pasar cuando se obtenga una lista de catalogos mayor a 0")
+    @DisplayName("Debe pasar cuando se obtenga una lista de catalogos mayor a 0")
     void listarCatalogos() {
 
         List <Catalogo> listaCatalogosActual= repo.findAll();
@@ -54,6 +53,7 @@ public class CatalogoServiceTest {
     }
 
     @Test
+    @DisplayName("Debe pasar cuando el catalago con id sea recuperado")
     void catalogoById() {;
         Number numero = 5;
         Long numeroD = new Long(numero.toString());
@@ -61,6 +61,7 @@ public class CatalogoServiceTest {
     }
 
     @Test
+    @DisplayName("Debe pasar cuando cada elemento de la lista tiene verdadero en el atributo 'activo'")
     void listarCatalogosActivos() {
         List <Catalogo> listaCatalogosActual= repo.getAllActives();
         //el assert crea un valor esperado

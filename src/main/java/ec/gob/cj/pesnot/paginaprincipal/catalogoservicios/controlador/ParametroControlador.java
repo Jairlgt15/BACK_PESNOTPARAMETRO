@@ -37,7 +37,7 @@ public class ParametroControlador {
 	}
 
 	@GetMapping("/parametros/{id}")
-	public Optional<Parametro> obtenerUsuarioPorId(@PathVariable("id") Long id) {
+	public Optional<Parametro> obtenerParametroById(@PathVariable("id") Long id) {
 		return parametroSrvicesImp.parametroById(id);
 	}
 	@GetMapping("/parametros/like/{nombre}")

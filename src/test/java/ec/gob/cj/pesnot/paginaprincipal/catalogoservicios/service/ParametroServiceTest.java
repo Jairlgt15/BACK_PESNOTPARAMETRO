@@ -33,7 +33,7 @@ class ParametroServiceTest {
     }
 
     @Test
-    @DisplayName("El test debe pasar cuando se obtenga una lista de catalogos mayor a 0")
+    @DisplayName("Debe pasar cuando se obtenga una lista de catalogos mayor a 0")
     void listarParametro() {
         List<Parametro> listaParametroActual= repo.findAll();
         assertNotNull(listaParametroActual);
@@ -41,6 +41,7 @@ class ParametroServiceTest {
     }
 
     @Test
+    @DisplayName("Debe pasar cuando al guardar el parametro no sea null")
     void guardarParametro() {
         Date fecha = new Date();
         //date en java es similar a Datetime en sql
@@ -51,6 +52,7 @@ class ParametroServiceTest {
     }
 
     @Test
+    @DisplayName("Debe devolver el numero de ID que esta predeterminado en la tabla")
     void parametroById() {
         Number numero = 5;
         Long numeroD = new Long(numero.toString());
@@ -58,6 +60,7 @@ class ParametroServiceTest {
     }
 
     @Test
+    @DisplayName("Debe pasar cuando se obtenga todo los paramateros a partir de un id de catalogo")
     void getParametrosByCatalogo() {
         Number numero = 5;
         List<Parametro> listaByCatalogo =repo.getParametrosByCatalogo(numero.toString());
