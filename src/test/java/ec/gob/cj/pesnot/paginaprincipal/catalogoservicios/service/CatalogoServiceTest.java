@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CatalogoServiceTest {
 
     @Autowired
-    private final ICatalogoRepo repo    = Mockito.mock(ICatalogoRepo.class);
+    private final ICatalogoRepo repo = Mockito.mock(ICatalogoRepo.class);
 
     @BeforeEach
     void setUp() {
