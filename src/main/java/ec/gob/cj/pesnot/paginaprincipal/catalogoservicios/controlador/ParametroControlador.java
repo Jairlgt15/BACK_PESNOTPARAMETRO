@@ -37,7 +37,7 @@ public class ParametroControlador {
 	}
 
 	@GetMapping("/parametros/{id}")
-	public Optional<Parametro> obtenerUsuarioPorId(@PathVariable("id") BigDecimal id) {
+	public Optional<Parametro> obtenerUsuarioPorId(@PathVariable("id") Long id) {
 		return parametroSrvicesImp.parametroById(id);
 	}
 	@GetMapping("/parametros/like/{nombre}")
@@ -53,7 +53,7 @@ public class ParametroControlador {
 
 
 	@DeleteMapping("/parametros/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") BigDecimal id){
+	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = parametroSrvicesImp.eliminar(id);
 	        if (ok){
 	            return "Se eliminó el usuario con id " + id;

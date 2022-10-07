@@ -3,7 +3,9 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICatalogoRepo;
 import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,10 +21,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CatalogoServiceTest {
 
     @Autowired
-    private final ICatalogoRepo repo = Mockito.mock(ICatalogoRepo.class);
-
+    @Spy
+    private ICatalogoRepo repo = Mockito.mock(ICatalogoRepo.class);
+    //antes de cada test
     @BeforeEach
     void setUp() {
+        CatalogoService service = new CatalogoService(repo);
     }
 
     @AfterEach
@@ -45,26 +49,24 @@ public class CatalogoServiceTest {
     void guardarCatalogo() {
         Catalogo catalogo= new Catalogo("provincia",true,true);
         Catalogo actual= repo.save(catalogo);
+        System.out.println(actual);
         assertThat(actual).isNotNull();
     }
 
     @Test
-    void catalogoById() {
+    void catalogoById() {;
         Number numero = 5;
         Long numeroD = new Long(numero.toString());
-        Optional<Catalogo> catalogo = repo.findById(numeroD);
-        assertThat(catalogo.get().getId()).isEqualTo(numeroD);
-    }
-
-    @Test
-    void actualizar() {
-    }
-
-    @Test
-    void eliminar() {
+        assertThat(repo.findById(numeroD)).isNotNull();
     }
 
     @Test
     void listarCatalogosActivos() {
+        List <Catalogo> listaCatalogosActual= repo.getAllActives();
+        //el assert crea un valor esperado
+        for(Catalogo catalogo:listaCatalogosActual){
+            assertThat(catalogo.isEstadoActivo()).isTrue();
+        }
+        assertNotNull(listaCatalogosActual);
     }
 }

@@ -31,9 +31,10 @@ public class CatalogoService {
 
 
 	public Optional<Catalogo> catalogoById(Long idEntrante) {
-		//El opcional me maneja si es que no encuentra nada 
-		
-		return icatalagoDAO.findById(idEntrante);
+		//El opcional me maneja si es que no encuentra nada
+		Optional <Catalogo> catalogo = icatalagoDAO.findById(idEntrante);
+		//.orElseThrow(()-> new CatalogoNotFoundException(idEntrante.toString()));
+		return catalogo;
 	}
 
 	public Catalogo actualizar(Catalogo catalagoAActualizar) {

@@ -27,7 +27,7 @@ public class ParametroService {
 	}
 
 
-	public Optional<Parametro> parametroById(BigDecimal idEntrante) {
+	public Optional<Parametro> parametroById(Long idEntrante) {
 		//El opcional me maneja si es que no encuentra nada 
 		
 		return iParametroRepo.findById(idEntrante);
@@ -38,7 +38,7 @@ public class ParametroService {
 		return null;
 	}
 
-	 public boolean eliminar(BigDecimal idClienteAEliminar) {
+	 public boolean eliminar(Long idClienteAEliminar) {
         try{
           iParametroRepo.deleteById(idClienteAEliminar);
             return true;

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 
 @Repository
-public interface IParametroRepo extends JpaRepository<Parametro,BigDecimal>{
+public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 //	List<Parametro> getfindByNombreActoNotarial(String nombreActoNotarial);
 	
 	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo")
