@@ -46,9 +46,9 @@ class ParametroServiceTest {
         Date fecha = new Date();
         //date en java es similar a Datetime en sql
         System.out.println(fecha);
-        //Parametro parametro= new Parametro(1l,2l,"nuevo",fecha,fecha,null,true,true,"Nuevo",2l );
-        //Parametro actual= repo.save(parametro);
-        //assertThat(actual).isNotNull();
+        Parametro parametro= new Parametro(1l,2l,"nuevo",fecha,fecha,null,true,true,"Nuevo",2l );
+        Parametro actual= repo.save(parametro);
+        assertThat(actual).isNotNull();
     }
 
     @Test

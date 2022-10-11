@@ -4,12 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -19,11 +17,8 @@ public class Parametro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDPARAMETROCATALOGO")
 	private Long idParametro;
-	
-	@JoinColumn(name = "IDCATALOGO", insertable = false, updatable = false)
-	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.EAGER)
-	private Catalogo catalogo;
-	
+	@Column(name="IDCATALOGO")
+	private Long idCatalogo;
 	@Column(name="NUMEROVERSIONPARAMETROCATALOGO")
 	private Long numero;
 	@Column(name="DESCRIPCIONPARAMETROCATALOGO")
@@ -49,27 +44,12 @@ public class Parametro {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-
-	public Parametro(Catalogo catalogo, Long numero, String descripcion, Date fecha, Date fechaInicio, Date fechaFin,
-			boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro, Long valorParametro) {
-		super();
-		this.catalogo.setId(catalogo.getId());
-		this.numero = numero;
-		this.descripcion = descripcion;
-		this.fecha = fecha;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.estadoActivo = estadoActivo;
-		this.estadoParametroCatalogo = estadoParametroCatalogo;
-		this.nombreParametro = nombreParametro;
-		this.valorParametro = valorParametro;
-	}
-	public Parametro(Long idParametro, Catalogo catalogo, Long numero, String descripcion, Date fecha, Date fechaInicio, Date fechaFin,
-			boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro, Long valorParametro) {
+	public Parametro(Long idParametro, Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
+			Long valorParametro) {
 		super();
 		this.idParametro = idParametro;
-		this.catalogo.setId(catalogo.getId());
+		this.idCatalogo = idCatalogo;
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
@@ -80,8 +60,22 @@ public class Parametro {
 		this.nombreParametro = nombreParametro;
 		this.valorParametro = valorParametro;
 	}
-
-
+	public Parametro(Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+					 Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
+					 Long valorParametro) {
+		super();
+		this.idParametro = idParametro;
+		this.idCatalogo = idCatalogo;
+		this.numero = numero;
+		this.descripcion = descripcion;
+		this.fecha = fecha;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.estadoActivo = estadoActivo;
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
+		this.nombreParametro = nombreParametro;
+		this.valorParametro = valorParametro;
+	}
 	public Long getIdParametro() {
 		return idParametro;
 	}
@@ -90,10 +84,10 @@ public class Parametro {
 		this.idParametro = idParametro;
 	}
 	public Long getIdCatalogo() {
-		return catalogo.getId();
+		return idCatalogo;
 	}
 	public void setIdCatalogo(Long idCatalogo) {
-		this.catalogo.setId(idCatalogo);
+		this.idCatalogo = idCatalogo;
 	}
 	public Long getNumero() {
 		return numero;
@@ -151,7 +145,7 @@ public class Parametro {
 	}
 	@Override
 	public String toString() {
-		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + catalogo.getId() + ", numero=" + numero
+		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + idCatalogo + ", numero=" + numero
 				+ ", descripcion=" + descripcion + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio + ", fechaFin="
 				+ fechaFin + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
 				+ "]";
