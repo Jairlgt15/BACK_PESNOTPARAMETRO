@@ -15,7 +15,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
 @Repository
 public interface ICatalogoRepo extends JpaRepository<Catalogo,Long> {
 	
-	@Query(nativeQuery = true,value="	SELECT * FROM CATALOGO where ESTADOACTIVO='true'")
+	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO where ESTADOACTIVO='true'")
 	List<Catalogo> getAllActives();
 	
 	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO c WHERE c.nombre LIKE :nombre%")

@@ -14,7 +14,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 //	List<Parametro> getfindByNombreActoNotarial(String nombreActoNotarial);
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo")
+	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo and p.ESTADOACTIVO=1 and p.ESTADOPARAMETROCATALOGO=1;")
 	List<Parametro> getParametrosByCatalogo(@Param("idCatalogo") String idCatalogo);
 	
 	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.descripcionparametrocatalogo LIKE :nombre%")
