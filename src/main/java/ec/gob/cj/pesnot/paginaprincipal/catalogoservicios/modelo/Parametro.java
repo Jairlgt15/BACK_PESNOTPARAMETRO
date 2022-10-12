@@ -20,7 +20,7 @@ public class Parametro {
 	@Column(name="IDPARAMETROCATALOGO")
 	private Long idParametro;
 	
-	@JoinColumn(name = "IDCATALOGO", insertable = false, updatable = false)
+	@JoinColumn(name = "IDCATALOGO", insertable = false, updatable = false, nullable=false)
 	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.EAGER)
 	private Catalogo catalogo;
 	
