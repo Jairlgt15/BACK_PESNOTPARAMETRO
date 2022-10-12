@@ -20,9 +20,10 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CatalogoServic
 
 
 
-@RestController
+
 @RequestMapping("/Catalogo")
-@CrossOrigin(originPatterns = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
 public class CatalogoControlador{
 	@Autowired
 	CatalogoService catalagoSrvicesImp;

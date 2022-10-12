@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParametroService;
 
-@RestController
 @RequestMapping("/Parametro")
-@CrossOrigin(originPatterns = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
 public class ParametroControlador {
 	
 	@Autowired
