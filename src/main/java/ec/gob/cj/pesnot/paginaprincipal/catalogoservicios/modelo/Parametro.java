@@ -22,7 +22,7 @@ public class Parametro {
 	
 	@JoinColumn(name = "IDCATALOGO", insertable = false, updatable = false, nullable=false)
 	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.EAGER)
-	private Catalogo catalogo;
+	private Long idcatalogo;
 	
 	@Column(name="NUMEROVERSIONPARAMETROCATALOGO")
 	private Long numero;
@@ -49,13 +49,15 @@ public class Parametro {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Parametro(Long idParametro, Catalogo catalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+
+	public Parametro(Long idParametro, Long idcatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
 			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
 			Long valorParametro) {
 		super();
 		this.idParametro = idParametro;
-		this.catalogo = catalogo;
+		this.idcatalogo = idcatalogo;
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
@@ -66,11 +68,11 @@ public class Parametro {
 		this.nombreParametro = nombreParametro;
 		this.valorParametro = valorParametro;
 	}
-	public Parametro( Catalogo catalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+	public Parametro(Long idcatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
 			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
 			Long valorParametro) {
 		super();
-		this.catalogo = catalogo;
+		this.idcatalogo = idcatalogo;
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
@@ -81,6 +83,7 @@ public class Parametro {
 		this.nombreParametro = nombreParametro;
 		this.valorParametro = valorParametro;
 	}
+	
 
 
 
@@ -95,15 +98,14 @@ public class Parametro {
 	}
 
 
-
-	public Catalogo getCatalogo() {
-		return catalogo;
+	public Long getIdcatalogo() {
+		return idcatalogo;
 	}
 
 
 
-	public void setCatalogo(Catalogo catalogo) {
-		this.catalogo = catalogo;
+	public void setIdcatalogo(Long idcatalogo) {
+		this.idcatalogo = idcatalogo;
 	}
 
 
