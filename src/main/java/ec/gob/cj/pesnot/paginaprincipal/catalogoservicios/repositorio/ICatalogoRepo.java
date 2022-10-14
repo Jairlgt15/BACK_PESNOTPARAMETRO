@@ -2,7 +2,6 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio;
 
 
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -22,8 +22,6 @@ public class Parametro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDPARAMETROCATALOGO")
 	private Long idParametro;
-	
-
 	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDCATALOGO",nullable=false)
 	@JsonProperty(access = Access.WRITE_ONLY)
