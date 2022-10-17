@@ -22,9 +22,9 @@ public class Parametro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDPARAMETROCATALOGO")
 	private Long idParametro;
-	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Catalogo.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDCATALOGO",nullable=false)
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.READ_WRITE)
 	private Catalogo idCatalogo;
 	
 	@Column(name="NUMEROVERSIONPARAMETROCATALOGO")
