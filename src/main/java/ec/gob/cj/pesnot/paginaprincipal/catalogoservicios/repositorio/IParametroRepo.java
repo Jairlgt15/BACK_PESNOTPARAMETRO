@@ -19,6 +19,9 @@ public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.NOMBREPARAMETRO LIKE :nombre%")
 	List<Parametro> getParametrosLike(@Param("nombre") String nombre);
 	
+	@Query(nativeQuery = true,value="select NOMBREPARAMETRO,FECHAPARAMETROCATALOGO, CASE WHEN NUMEROVERSIONPARAMETROCATALOGO=1 THEN 'Creacion' ELSE '' END AS Accion from parametro")
+	List<Parametro> getBitacora();
+	
 
 
 

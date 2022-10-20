@@ -39,14 +39,7 @@ public class CatalogoService {
 		return null;
 	}
 
-	 public boolean eliminar(Long idClienteAEliminar) {
-        try{
-          icatalagoDAO.deleteById(idClienteAEliminar);
-            return true;
-        }catch(Exception err){
-            return false;
-        }
-    }
+
 	public List<Catalogo> listarCatalogosActivos(){
 		return icatalagoDAO.getAllActives();
 	}

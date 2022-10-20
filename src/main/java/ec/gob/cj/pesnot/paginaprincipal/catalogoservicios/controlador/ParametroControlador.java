@@ -48,13 +48,4 @@ public class ParametroControlador {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
 	}
 	
-	@DeleteMapping("/parametros/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") Long id){
-	        boolean ok = parametroSrvicesImp.eliminar(id);
-	        if (ok){
-	            return "Se eliminó el usuario con id " + id;
-	        }else{
-	            return "No pudo eliminar el usuario con id" + id;
-	        }   
-	        }
 }

@@ -29,13 +29,7 @@ public class Catalogo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Catalogo(Long id, String nombre, boolean estadoCatalogo, boolean estadoActivo) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.estadoCatalogo = estadoCatalogo;
-		this.estadoActivo = estadoActivo;
-	}
+
 	public Catalogo( String nombre, boolean estadoCatalogo, boolean estadoActivo) {
 		super();
 		this.nombre = nombre;

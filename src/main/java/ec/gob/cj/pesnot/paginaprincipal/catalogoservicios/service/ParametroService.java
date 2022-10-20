@@ -38,14 +38,6 @@ public class ParametroService {
 		return null;
 	}
 
-	 public boolean eliminar(Long idClienteAEliminar) {
-        try{
-          iParametroRepo.deleteById(idClienteAEliminar);
-            return true;
-        }catch(Exception err){
-            return false;
-        }
-    }
 	 
 	 public List<Parametro> getParametrosLike(String nombre) {
 			
