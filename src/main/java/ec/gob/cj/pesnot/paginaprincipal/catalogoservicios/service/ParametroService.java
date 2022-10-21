@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
+
+import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +56,10 @@ public class ParametroService {
 		 listaByCatalogo=iParametroRepo.getParametrosByCatalogo(idCatalogo);
 		 return listaByCatalogo;
 		 
-	 }	 
+	 }
+	 public List <?> getBitacora(){
+		 return iParametroRepo.getBitacora();
+		 
+	 }
 
 }

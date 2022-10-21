@@ -3,9 +3,9 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +46,10 @@ public class ParametroControlador {
 	@GetMapping("/parametros/Catalogo/{nombre}")
 	public List<Parametro> getParametrosByCatalogo(@PathVariable ("nombre") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
+	}
+	@GetMapping("/parametros/bitacora")
+	public List<?> getBitacora(){
+		return parametroSrvicesImp.getBitacora();
 	}
 	
 }

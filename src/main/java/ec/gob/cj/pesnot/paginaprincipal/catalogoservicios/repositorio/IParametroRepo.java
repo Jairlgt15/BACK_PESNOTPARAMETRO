@@ -2,6 +2,7 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio;
 
 import java.util.List;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,8 +20,8 @@ public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.NOMBREPARAMETRO LIKE :nombre%")
 	List<Parametro> getParametrosLike(@Param("nombre") String nombre);
 	
-	@Query(nativeQuery = true,value="select NOMBREPARAMETRO,FECHAPARAMETROCATALOGO, CASE WHEN NUMEROVERSIONPARAMETROCATALOGO=1 THEN 'Creacion' ELSE '' END AS Accion from parametro")
-	List<Parametro> getBitacora();
+	@Query(nativeQuery = true,value="select FECHAINICIOPARAMETROCATALOGO,NOMBREPARAMETRO, CASE WHEN ESTADOACTIVO=0 THEN 'Eliminacion' WHEN NUMEROVERSIONPARAMETROCATALOGO=1 THEN 'Creacion' WHEN NUMEROVERSIONPARAMETROCATALOGO<>1 THEN 'Modificacion' ELSE '' END AS Accion from parametro")
+	List getBitacora();
 	
 
 
