@@ -15,16 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-
-
 import java.util.List;
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 //debemos mapear la clase a public para hacer el ejecutable
 @SpringBootTest
@@ -50,7 +42,6 @@ public class CatalogoServiceTest {
     //antes de cada test
     @BeforeEach
     void setUp() {
-        CatalogoService service = Mockito.mock(CatalogoService.class);
     }
 
     @AfterEach
@@ -136,7 +127,7 @@ public class CatalogoServiceTest {
     	repoS.guardarCatalogo(catalogo);
     }
     @Test
-    @DisplayName("PruebaServicio")
+    @DisplayName("PruebaControlador")
     void listarControlador() {
      	Catalogo catalogo = new Catalogo();
     	contR.listarCatalogos();
