@@ -33,10 +33,6 @@ public class Parametro {
 	private String descripcion;
 	@Column(name="FECHAPARAMETROCATALOGO")
 	private Date fecha;
-	@Column(name="FECHAINICIOPARAMETROCATALOGO")
-	private Date fechaInicio;
-	@Column(name="FECHAFINPARAMETROCATALOGO")
-	private Date fechaFin;
 	@Column(name="ESTADOACTIVO")
 	private boolean estadoActivo;
 	@Column(name="ESTADOPARAMETROCATALOGO")
@@ -56,7 +52,7 @@ public class Parametro {
 
 
 	public Parametro(Long idParametro, Catalogo idCatalogo, Long numero, String descripcion, Date fecha,
-			Date fechaInicio, Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo,
+			boolean estadoActivo, boolean estadoParametroCatalogo,
 			String nombreParametro, Long valorParametro) {
 		super();
 		this.idParametro = idParametro;
@@ -64,8 +60,6 @@ public class Parametro {
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
 		this.estadoActivo = estadoActivo;
 		this.estadoParametroCatalogo = estadoParametroCatalogo;
 		this.nombreParametro = nombreParametro;
@@ -74,15 +68,13 @@ public class Parametro {
 
 
 
-	public Parametro(Catalogo idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio, Date fechaFin,
+	public Parametro(Catalogo idCatalogo, Long numero, String descripcion, Date fecha,
 			boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro, Long valorParametro) {
 		super();
 		this.idCatalogo = idCatalogo;
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
 		this.estadoActivo = estadoActivo;
 		this.estadoParametroCatalogo = estadoParametroCatalogo;
 		this.nombreParametro = nombreParametro;
@@ -150,31 +142,6 @@ public class Parametro {
 	}
 
 
-
-	public Date getFechaInicio() {
-		return fechaInicio;
-	}
-
-
-
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
-
-
-	public Date getFechaFin() {
-		return fechaFin;
-	}
-
-
-
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
-	}
-
-
-
 	public boolean isEstadoActivo() {
 		return estadoActivo;
 	}
@@ -226,8 +193,7 @@ public class Parametro {
 	@Override
 	public String toString() {
 		return "Parametro [idParametro=" + idParametro + ", idcatalogo=" + idCatalogo + ", numero=" + numero
-				+ ", descripcion=" + descripcion + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio + ", fechaFin="
-				+ fechaFin + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
+				+ ", descripcion=" + descripcion + ", fecha=" + fecha + ", fechaInicio=" + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
 				+ ", nombreParametro=" + nombreParametro + ", valorParametro=" + valorParametro + "]";
 	}
 
