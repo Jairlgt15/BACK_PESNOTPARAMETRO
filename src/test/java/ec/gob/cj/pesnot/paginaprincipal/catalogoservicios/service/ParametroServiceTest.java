@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Date;
@@ -28,6 +29,7 @@ class ParametroServiceTest {
     private final ParametroService service = Mockito.mock(ParametroService.class);
     @Autowired
     private final ParametroControlador cont = Mockito.mock(ParametroControlador.class);
+
     
 
     @BeforeEach
@@ -50,11 +52,13 @@ class ParametroServiceTest {
     @Test
     @DisplayName("Debe pasar cuando se obtenga un parametro guardado")
     void guardarParametro() {
+        Catalogo catalogo= new Catalogo("EstadoCivil",true,true);
+        Catalogo actual= repoC.save(catalogo);
+ 
         Parametro parametro= new Parametro();
-        Catalogo catalogo= repoC.getById((long) 1);
         parametro.setEstadoParametroCatalogo(false);
         parametro.setEstadoActivo(false);
-        parametro.setIdCatalogo(catalogo);
+        parametro.setIdCatalogo(actual);
         parametro.setDescripcion("a");
         parametro.setFecha(null);
         parametro.setFechaInicio(null);
@@ -63,10 +67,10 @@ class ParametroServiceTest {
         parametro.setNumero((long) 1);
         parametro.setValorParametro((long) 1);
         
-        Parametro actual= repo.save(parametro);
+        Parametro actualP= repo.save(parametro);
 
 
-        assertThat(actual).isNotNull();
+        assertThat(actualP).isNotNull();
     }
     
 
@@ -74,10 +78,66 @@ class ParametroServiceTest {
     @Test
     @DisplayName("Debe devolver el numero de ID que esta predeterminado en la tabla")
     void parametroById() {
-        Number numero = 5;
-        Long numeroD = new Long(numero.toString());
-        assertThat(repo.findById(numeroD)).isNotNull();
+        Catalogo catalogo= new Catalogo("EstadoCivil",true,true);
+        Catalogo actual= repoC.save(catalogo);
+ 
+        Parametro parametro= new Parametro();
+        parametro.setEstadoParametroCatalogo(false);
+        parametro.setEstadoActivo(false);
+        parametro.setIdCatalogo(actual);
+        parametro.setDescripcion("a");
+        parametro.setFecha(null);
+        parametro.setFechaInicio(null);
+        parametro.setFechaFin(null);
+        parametro.setNombreParametro("a");
+        parametro.setNumero((long) 1);
+        parametro.setValorParametro((long) 1);
+        
+        Parametro actualP= repo.save(parametro);
+        assertThat(repo.findById(actualP.getIdParametro())).isNotNull();
     }
+  
+    
+
+    @Test
+    @DisplayName("Debe pasar cuando se obtenga todo los parametros a partir de un id de catalogo")
+    void getParametrosByCatalogo() {
+        Catalogo catalogo= new Catalogo("EstadoCivil",true,true);
+        Catalogo actual= repoC.save(catalogo);
+ 
+        Parametro parametro= new Parametro();
+        parametro.setEstadoParametroCatalogo(false);
+        parametro.setEstadoActivo(false);
+        parametro.setIdCatalogo(actual);
+        parametro.setDescripcion("a");
+        parametro.setFecha(null);
+        parametro.setFechaInicio(null);
+        parametro.setFechaFin(null);
+        parametro.setNombreParametro("a");
+        parametro.setNumero((long) 1);
+        parametro.setValorParametro((long) 1);
+        List<Parametro> listaByCatalogo =repo.getParametrosByCatalogo(actual.getId().toString());
+        assertThat(listaByCatalogo).isNotNull();
+    }
+    
+    
+	/*
+	 * @Test
+	 * 
+	 * @DisplayName("Debe pasar cuando cada elemento de la lista tiene verdadero en el atributo 'activo'"
+	 * ) void listarParametrossActivosByCatalogo() { Catalogo catalogoe= new
+	 * Catalogo("EstadoCivil",true,true); Catalogo actual= repoC.save(catalogoe);
+	 * 
+	 * Parametro parametro= new Parametro();
+	 * parametro.setEstadoParametroCatalogo(false);
+	 * parametro.setEstadoActivo(false); parametro.setIdCatalogo(actual);
+	 * parametro.setDescripcion("a"); parametro.setFecha(null);
+	 * parametro.setFechaInicio(null); parametro.setFechaFin(null);
+	 * parametro.setNombreParametro("a"); parametro.setNumero((long) 1);
+	 * parametro.setValorParametro((long) 1); List<Parametro> listaCatalogosActual
+	 * =repo.getParametrosByCatalogo(actual.getId().toString()); //el assert crea un
+	 * valor esperado assertNotNull(listaCatalogosActual); }
+	 */
     @Test
     @DisplayName("Prueba la funcionalidad del modelo")
     void modelo() {
@@ -110,29 +170,6 @@ class ParametroServiceTest {
     	parametro.getIdCatalogo();
 
 
-    }
-    
-
-    @Test
-    @DisplayName("Debe pasar cuando se obtenga todo los parametros a partir de un id de catalogo")
-    void getParametrosByCatalogo() {
-        Number numero = 5;
-        List<Parametro> listaByCatalogo =repo.getParametrosByCatalogo(numero.toString());
-        assertThat(listaByCatalogo).isNotNull();
-    }
-    
-    
-    @Test
-    @DisplayName("Debe pasar cuando cada elemento de la lista tiene verdadero en el atributo 'activo'")
-    void listarParametrossActivosByCatalogo() {
-        Catalogo catalogoE= repoC.getById((long) 1);
-        List <Parametro> listaCatalogosActual= repo.getParametrosByCatalogo(catalogoE.getId().toString());
-        //el assert crea un valor esperado
-        for(Parametro catalogo:listaCatalogosActual){
-            assertThat(catalogo.isEstadoActivo()).isTrue();
-            assertThat(catalogo.isEstadoParametroCatalogo()).isTrue();
-        }
-        assertNotNull(listaCatalogosActual);
     }
     @Test
     @DisplayName("Prueba Servicio")

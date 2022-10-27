@@ -90,14 +90,12 @@ public class CatalogoServiceTest {
 
     @Test
     @DisplayName("Debe pasar cuando el catalago con id sea recuperado")
-    void catalogoById() {;
-        Number numero = 5;
-        Long numeroD ;
-        Catalogo catalogo= new Catalogo();
+    void catalogoById() {
+        Catalogo catalogo= new Catalogo("EstadoCivil",true,true);
+        Catalogo actual= repo.save(catalogo);
  
-        numeroD=catalogo.getId();
+        Long numeroD=actual.getId();
         String nombre= catalogo.getNombre();
-        numeroD = new Long(numero.toString());
 
         assertThat(repo.findById(numeroD)).isNotNull();
     }
