@@ -2,8 +2,6 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

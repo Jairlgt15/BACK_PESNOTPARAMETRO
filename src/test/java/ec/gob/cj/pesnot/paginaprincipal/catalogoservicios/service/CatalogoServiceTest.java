@@ -39,15 +39,6 @@ public class CatalogoServiceTest {
     
     
     
-    //antes de cada test
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-    
     @Test
 	   public void main() {
     	BackParametrosApplication.main(new String[] {});
