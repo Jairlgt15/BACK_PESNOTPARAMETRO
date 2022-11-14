@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
-@Table(name="Parametro")
+@Table(name="PARAMETROCATALOGO")
 public class Parametro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -14,10 +14,10 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 //	List<Parametro> getfindByNombreActoNotarial(String nombreActoNotarial);
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo and p.ESTADOACTIVO=1 and p.ESTADOPARAMETROCATALOGO=1;")
+	@Query(nativeQuery =true,value = "SELECT * FROM PARAMETROCATALOGO p where p.idcatalogo = :idCatalogo and p.ESTADOACTIVO=1 and p.ESTADOPARAMETROCATALOGO=1;")
 	List<Parametro> getParametrosByCatalogo(@Param("idCatalogo") String idCatalogo);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.NOMBREPARAMETRO LIKE :nombre%")
+	@Query(nativeQuery = true,value="SELECT * FROM PARAMETROCATALOGO p WHERE p.NOMBREPARAMETRO LIKE :nombre%")
 	List<Parametro> getParametrosLike(@Param("nombre") String nombre);
 	
 	@Query(nativeQuery = true,value="select FECHAINICIOPARAMETROCATALOGO,NOMBREPARAMETRO, CASE WHEN ESTADOACTIVO=0 THEN 'Eliminacion' WHEN NUMEROVERSIONPARAMETROCATALOGO=1 THEN 'Creacion' WHEN NUMEROVERSIONPARAMETROCATALOGO<>1 THEN 'Modificacion' ELSE '' END AS Accion from parametro")

@@ -47,9 +47,6 @@ public class ParametroControlador {
 	public List<Parametro> getParametrosByCatalogo(@PathVariable ("nombre") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
 	}
-	@GetMapping("/parametros/bitacora")
-	public List<?> getBitacora(){
-		return parametroSrvicesImp.getBitacora();
-	}
+
 	
 }

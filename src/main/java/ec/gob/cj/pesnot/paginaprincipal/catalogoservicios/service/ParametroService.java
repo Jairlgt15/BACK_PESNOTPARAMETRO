@@ -57,9 +57,6 @@ public class ParametroService {
 		 return listaByCatalogo;
 		 
 	 }
-	 public List <?> getBitacora(){
-		 return iParametroRepo.getBitacora();
-		 
-	 }
+
 
 }
