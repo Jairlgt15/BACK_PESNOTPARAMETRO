@@ -30,21 +30,21 @@ public class ParametroControlador {
 	}
 
 	@PostMapping("/save")
-	public Parametro guardarActos(@RequestBody Parametro objParametro) {
+	public Parametro guardarParametros(@RequestBody Parametro objParametro) {
 
 		return parametroSrvicesImp.guardarParametro(objParametro);
 	}
 
 	@GetMapping("/parametros/{id}")
-	public Optional<Parametro> obtenerParametroById(@PathVariable("id") Long id) {
+	public Optional<Parametro> obtenerParametroPorId(@PathVariable("id") Long id) {
 		return parametroSrvicesImp.parametroById(id);
 	}
 	@GetMapping("/parametros/like/{nombre}")
-	public List<Parametro> getParametrosLike(@PathVariable ("nombre") String nombre) {
+	public List<Parametro> obtenerParametrosLikeNombre(@PathVariable ("nombre") String nombre) {
 		return parametroSrvicesImp.getParametrosLike(nombre);
 	}
 	@GetMapping("/parametros/Catalogo/{nombre}")
-	public List<Parametro> getParametrosByCatalogo(@PathVariable ("nombre") String id) {
+	public List<Parametro> obtenerParametrosPorCatalogo(@PathVariable ("nombre") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
 	}
 

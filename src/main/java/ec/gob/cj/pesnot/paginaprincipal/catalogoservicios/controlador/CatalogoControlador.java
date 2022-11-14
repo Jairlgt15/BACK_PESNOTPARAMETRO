@@ -39,7 +39,7 @@ public class CatalogoControlador{
 	}
 
 	@PostMapping("/save")
-	public Catalogo guardarActos(@RequestBody Catalogo objCatalogo) {
+	public Catalogo guardarCatalogo(@RequestBody Catalogo objCatalogo) {
 
 		return catalagoSrvicesImp.guardarCatalogo(objCatalogo);
 	}
@@ -49,7 +49,7 @@ public class CatalogoControlador{
 		return catalagoSrvicesImp.catalogoById(id);
 	}
 	@GetMapping("/catalogos/like/{likeNombre}")
-	public List<Catalogo> obtenerActosLike(@PathVariable("likeNombre") String nombre) {
+	public List<Catalogo> obtenerActosLikeNombre(@PathVariable("likeNombre") String nombre) {
 		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
 

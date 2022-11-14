@@ -132,9 +132,9 @@ public class CatalogoServiceTest {
      	Catalogo catalogo = new Catalogo();
     	contR.listarCatalogos();
     	contR.listarCatalogosActivos();
-    	contR.guardarActos(catalogo);
+    	contR.guardarCatalogo(catalogo);
     	contR.obtenerCatalogosPorId((long) 1);
-    	contR.obtenerActosLike("caca");
+    	contR.obtenerActosLikeNombre("caca");
     	
     	}
     

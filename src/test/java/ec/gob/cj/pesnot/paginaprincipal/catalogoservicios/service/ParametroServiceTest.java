@@ -147,10 +147,10 @@ class ParametroServiceTest {
     	Parametro parametro1=new Parametro(1l,catalogoE,1l, "hola", null,true,true,"",2l);
     	Parametro parametro=new Parametro(catalogoE,1l, "hola", null,true,true,"",2l);
     	cont.listarParametros();
-    	cont.guardarActos(parametro);
-    	cont.obtenerParametroById((long) 1);
-    	cont.getParametrosByCatalogo("1");
-    	cont.getParametrosLike("nombr");
+    	cont.guardarParametros(parametro);
+    	cont.obtenerParametroPorId((long) 1);
+    	cont.obtenerParametrosPorCatalogo("1");
+    	cont.obtenerParametrosLikeNombre("nombr");
     	
     }
     
