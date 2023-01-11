@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.ICatalogoR
 
 
 @Service
+@AllArgsConstructor
 public class CatalogoService {
 	@Autowired
 	ICatalogoRepo icatalagoDAO;
@@ -22,26 +24,17 @@ public class CatalogoService {
 	public List<Catalogo> listarCatalogos() {
 		return icatalagoDAO.findAll();
 	}
-	 public List<Catalogo> getCatalogosLike(String nombre) {
-			
-			
-			List<Catalogo> listaLike = new ArrayList<>();
-			
-			listaLike=icatalagoDAO.getCatalogosLike(nombre);
-			
-			return listaLike;
-			
-		}
 
 	public Catalogo guardarCatalogo(Catalogo catalogoEntrante) {
 		return icatalagoDAO.save(catalogoEntrante);
 	}
 
 
-	public Optional<Catalogo> catalogoById(BigDecimal idEntrante) {
-		//El opcional me maneja si es que no encuentra nada 
-		
-		return icatalagoDAO.findById(idEntrante);
+	public Optional<Catalogo> catalogoById(Long idEntrante) {
+		//El opcional me maneja si es que no encuentra nada
+		Optional <Catalogo> catalogo = icatalagoDAO.findById(idEntrante);
+		//.orElseThrow(()-> new CatalogoNotFoundException(idEntrante.toString()));
+		return catalogo;
 	}
 
 	public Catalogo actualizar(Catalogo catalagoAActualizar) {
@@ -49,7 +42,7 @@ public class CatalogoService {
 		return null;
 	}
 
-	 public boolean eliminar(BigDecimal idClienteAEliminar) {
+	 public boolean eliminar(Long idClienteAEliminar) {
         try{
           icatalagoDAO.deleteById(idClienteAEliminar);
             return true;
@@ -57,9 +50,15 @@ public class CatalogoService {
             return false;
         }
     }
-	public List<Catalogo> listarCatalogosActivos(String idEstado){
-		return icatalagoDAO.getAllActives(idEstado);
+	public List<Catalogo> listarCatalogosActivos(){
+		return icatalagoDAO.getAllActives();
 	}
+	 public List<Catalogo> getCatalogosLike(String idCatalogo){
+		 List<Catalogo> listaLikeCatalogo = new ArrayList<>();
+		 listaLikeCatalogo=icatalagoDAO.getCatalogosLike(idCatalogo);
+		 return listaLikeCatalogo;
+		 
+	 }	 
 	
 
 }

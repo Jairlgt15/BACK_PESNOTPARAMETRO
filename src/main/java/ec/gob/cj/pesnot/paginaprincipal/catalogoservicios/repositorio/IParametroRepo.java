@@ -11,14 +11,14 @@ import org.springframework.stereotype.Repository;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 
 @Repository
-public interface IParametroRepo extends JpaRepository<Parametro,BigDecimal>{
+public interface IParametroRepo extends JpaRepository<Parametro,Long>{
 //	List<Parametro> getfindByNombreActoNotarial(String nombreActoNotarial);
 	
-	@Query(nativeQuery =true,value = "SELECT * FROM parametro p where p.idcatalogo = :idCatalogo")
+	@Query(nativeQuery =true,value = "SELECT * FROM ParametroCatalogo p where p.idCatalogo = :idCatalogo and p.ESTADOACTIVO=1 and p.ESTADOPARAMETROCATALOGO=1;")
 	List<Parametro> getParametrosByCatalogo(@Param("idCatalogo") String idCatalogo);
 	
-	@Query(nativeQuery = true,value="SELECT * FROM parametro p WHERE p.nombre LIKE :nombre%")
-	List<Parametro> getActosLike(@Param("nombre") String nombre);
+	@Query(nativeQuery = true,value="SELECT * FROM ParametroCatalogo p WHERE p.descripcionparametrocatalogo LIKE :nombre%")
+	List<Parametro> getParametrosLike(@Param("nombre") String nombre);
 	
 
 

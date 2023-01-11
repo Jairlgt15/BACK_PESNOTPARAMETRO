@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CatalogoService;
 
 
@@ -32,13 +32,11 @@ public class CatalogoControlador{
 	public List<Catalogo> listarCatalogos() {
 		return catalagoSrvicesImp.listarCatalogos();
 	}
-	@GetMapping("/catalogosActivos/{id}")
-	public List<Catalogo> listarCatalogosActivos(@PathVariable("id") String id) {
-		return catalagoSrvicesImp.listarCatalogosActivos(id);
-	}
-	@GetMapping("/catalogos/like/{nombre}")
-	public List<Catalogo> getCatalogosLike(@PathVariable ("nombre") String nombre) {
-		return catalagoSrvicesImp.getCatalogosLike(nombre);
+	@GetMapping("/catalogosActivos")
+	public List<Catalogo> listarCatalogosActivos() {
+		List<Catalogo> result = null;
+		result = catalagoSrvicesImp.listarCatalogosActivos();
+		return result;
 	}
 
 	@PostMapping("/save")
@@ -48,13 +46,17 @@ public class CatalogoControlador{
 	}
 
 	@GetMapping("/catalogos/{id}")
-	public Optional<Catalogo> obtenerUsuarioPorId(@PathVariable("id") BigDecimal id) {
+	public Optional<Catalogo> obtenerCatalogosPorId(@PathVariable("id") Long id) {
 		return catalagoSrvicesImp.catalogoById(id);
+	}
+	@GetMapping("/catalogos/like/{likeNombre}")
+	public List<Catalogo> obtenerActosLike(@PathVariable("likeNombre") String nombre) {
+		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
 
 
 	@DeleteMapping("/catalogos/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") BigDecimal id){
+	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = catalagoSrvicesImp.eliminar(id);
 	        if (ok){
 	            return "Se eliminó el usuario con id " + id;

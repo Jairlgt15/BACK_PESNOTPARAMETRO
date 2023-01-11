@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParametroRepo;
 
 @Service
+@AllArgsConstructor
 public class ParametroService {
 	@Autowired
 	IParametroRepo iParametroRepo;
@@ -25,7 +27,7 @@ public class ParametroService {
 	}
 
 
-	public Optional<Parametro> parametroById(BigDecimal idEntrante) {
+	public Optional<Parametro> parametroById(Long idEntrante) {
 		//El opcional me maneja si es que no encuentra nada 
 		
 		return iParametroRepo.findById(idEntrante);
@@ -36,7 +38,7 @@ public class ParametroService {
 		return null;
 	}
 
-	 public boolean eliminar(BigDecimal idClienteAEliminar) {
+	 public boolean eliminar(Long idClienteAEliminar) {
         try{
           iParametroRepo.deleteById(idClienteAEliminar);
             return true;
@@ -50,7 +52,7 @@ public class ParametroService {
 			
 			List<Parametro> listaLike = new ArrayList<>();
 			
-			listaLike=iParametroRepo.getActosLike(nombre);
+			listaLike=iParametroRepo.getParametrosLike(nombre);
 			
 			return listaLike;
 			
@@ -60,6 +62,6 @@ public class ParametroService {
 		 listaByCatalogo=iParametroRepo.getParametrosByCatalogo(idCatalogo);
 		 return listaByCatalogo;
 		 
-	 }
+	 }	 
 
 }

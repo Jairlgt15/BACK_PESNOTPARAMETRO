@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,32 +11,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Parametro")
+@Table(name="ParametroCatalogo")
 public class Parametro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="IDPARAMETRO")
-	private BigDecimal idParametro;
-	
-
-	@Column(name="IDCATALOGO")
-	private BigDecimal idCatalogo;
-	@Column(name="NOMBRE")
-	private String nombre;
-	@Column(name="NUMERO")
-	private BigDecimal numero;
-	@Column(name="TEXTO")
-	private String texto;
-	@Column(name="FECHA")
+	@Column(name="idParametrocatalogo")
+	private Long idParametro;
+	@Column(name="idCatalogo")
+	private Long idCatalogo;
+	@Column(name="numeroVersionParametroCatalogo")
+	private Long numero;
+	@Column(name="descripcionParametroCatologo")
+	private String descripcion;
+	@Column(name="fechaParametroCatalogo")
 	private Date fecha;
-	@Column(name="FECHAINICIO")
+	@Column(name="fechaInicioParametroCatalogo")
 	private Date fechaInicio;
-	@Column(name="FECHAFIN")
+	@Column(name="fechaFinParametroCatalogo")
 	private Date fechaFin;
-	@Column(name="IDESTADO")
-	private Long idEstado;
-	@Column(name="OBSERVACION")
-	private String observacion;
+	@Column(name="estadoActivo")
+	private boolean estadoActivo;
+	@Column(name="estadoParametroCatalogo")
+	private boolean estadoParametroCatalogo;
+	@Column(name="nombreParametroCatalogo")
+	private String nombreParametro;
+	@Column(name="valorParametroCatalogo")
+	private Long valorParametro;
 	
 	
 	
@@ -45,53 +44,62 @@ public class Parametro {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-
-	public Parametro(BigDecimal idParametro, BigDecimal idCatalogo, String nombre, BigDecimal numero, String texto,
-			Date fecha, Date fechaInicio, Date fechaFin, Long idEstado, String observacion) {
+	public Parametro(Long idParametro, Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+			Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
+			Long valorParametro) {
 		super();
 		this.idParametro = idParametro;
 		this.idCatalogo = idCatalogo;
-		this.nombre = nombre;
 		this.numero = numero;
-		this.texto = texto;
+		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.idEstado = idEstado;
-		this.observacion = observacion;
+		this.estadoActivo = estadoActivo;
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
+		this.nombreParametro = nombreParametro;
+		this.valorParametro = valorParametro;
 	}
-
-
-	public BigDecimal getIdParametro() {
+	public Parametro(Long idCatalogo, Long numero, String descripcion, Date fecha, Date fechaInicio,
+					 Date fechaFin, boolean estadoActivo, boolean estadoParametroCatalogo, String nombreParametro,
+					 Long valorParametro) {
+		super();
+		this.idParametro = idParametro;
+		this.idCatalogo = idCatalogo;
+		this.numero = numero;
+		this.descripcion = descripcion;
+		this.fecha = fecha;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.estadoActivo = estadoActivo;
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
+		this.nombreParametro = nombreParametro;
+		this.valorParametro = valorParametro;
+	}
+	public Long getIdParametro() {
 		return idParametro;
 	}
-	public void setIdParametro(BigDecimal idParametro) {
+
+	public void setIdParametro(Long idParametro) {
 		this.idParametro = idParametro;
 	}
-	public BigDecimal getIdCatalogo() {
+	public Long getIdCatalogo() {
 		return idCatalogo;
 	}
-	public void setIdCatalogo(BigDecimal idCatalogo) {
+	public void setIdCatalogo(Long idCatalogo) {
 		this.idCatalogo = idCatalogo;
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public BigDecimal getNumero() {
+	public Long getNumero() {
 		return numero;
 	}
-	public void setNumero(BigDecimal numero) {
+	public void setNumero(Long numero) {
 		this.numero = numero;
 	}
-	public String getTexto() {
-		return texto;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public Date getFecha() {
 		return fecha;
@@ -111,27 +119,35 @@ public class Parametro {
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	public Long getIdEstado() {
-		return idEstado;
+	public boolean isEstadoActivo() {
+		return estadoActivo;
 	}
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
+	public void setEstadoActivo(boolean estadoActivo) {
+		this.estadoActivo = estadoActivo;
 	}
-	public String getObservacion() {
-		return observacion;
+	public boolean isEstadoParametroCatalogo() {
+		return estadoParametroCatalogo;
 	}
-	public void setObservacion(String observacion) {
-		this.observacion = observacion;
+	public void setEstadoParametroCatalogo(boolean estadoParametroCatalogo) {
+		this.estadoParametroCatalogo = estadoParametroCatalogo;
 	}
-
-
+	public String getNombreParametro() {
+		return nombreParametro;
+	}
+	public void setNombreParametro(String nombreParametro) {
+		this.nombreParametro = nombreParametro;
+	}
+	public Long getValorParametro() {
+		return valorParametro;
+	}
+	public void setValorParametro(Long valorParametro) {
+		this.valorParametro = valorParametro;
+	}
 	@Override
 	public String toString() {
-		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + idCatalogo + ", nombre=" + nombre
-				+ ", numero=" + numero + ", texto=" + texto + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio
-				+ ", fechaFin=" + fechaFin + ", idEstado=" + idEstado + ", observacion=" + observacion + "]";
+		return "Parametro [idParametro=" + idParametro + ", idCatalogo=" + idCatalogo + ", numero=" + numero
+				+ ", descripcion=" + descripcion + ", fecha=" + fecha + ", fechaInicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", estadoActivo=" + estadoActivo + ", estadoParametroCatalogo=" + estadoParametroCatalogo
+				+ "]";
 	}
-	
-	
-
 }

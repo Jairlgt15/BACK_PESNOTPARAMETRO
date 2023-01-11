@@ -11,14 +11,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
-import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 
 @Repository
-public interface ICatalogoRepo extends JpaRepository<Catalogo,BigDecimal> {
+public interface ICatalogoRepo extends JpaRepository<Catalogo,Long> {
 	
-	@Query(nativeQuery = true,value="	SELECT * FROM CATALOGO where IDESTADO=:idEstado")
-	List<Catalogo> getAllActives(@Param("idEstado") String idEstado);
-	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO C WHERE C.nombre LIKE :nombre%")
+	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO where ESTADOACTIVO='true'")
+	List<Catalogo> getAllActives();
+	
+	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO c WHERE c.nombreCatalogo LIKE :nombre%")
 	List<Catalogo> getCatalogosLike(@Param("nombre") String nombre);
 	
 

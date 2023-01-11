@@ -26,7 +26,7 @@ public class ParametroControlador {
 	ParametroService parametroSrvicesImp;
 
 	@GetMapping("/parametros")
-	public List<Parametro> listarCatalogos() {
+	public List<Parametro> listarParametros() {
 		return parametroSrvicesImp.listarParametro();
 	}
 
@@ -37,7 +37,7 @@ public class ParametroControlador {
 	}
 
 	@GetMapping("/parametros/{id}")
-	public Optional<Parametro> obtenerUsuarioPorId(@PathVariable("id") BigDecimal id) {
+	public Optional<Parametro> obtenerParametroById(@PathVariable("id") Long id) {
 		return parametroSrvicesImp.parametroById(id);
 	}
 	@GetMapping("/parametros/like/{nombre}")
@@ -47,13 +47,10 @@ public class ParametroControlador {
 	@GetMapping("/parametros/Catalogo/{nombre}")
 	public List<Parametro> getParametrosByCatalogo(@PathVariable ("nombre") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
-
-
 	}
-
-
+	
 	@DeleteMapping("/parametros/eliminar/{id}")
-	    public String eliminarPorId(@PathVariable("id") BigDecimal id){
+	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = parametroSrvicesImp.eliminar(id);
 	        if (ok){
 	            return "Se eliminó el usuario con id " + id;
@@ -61,6 +58,4 @@ public class ParametroControlador {
 	            return "No pudo eliminar el usuario con id" + id;
 	        }   
 	        }
-
-	
 }

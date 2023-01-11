@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo;
 
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,34 +9,44 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "catalogo")
+@Table(name = "Catalogo")
 
 public class Catalogo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDCATALOGO")
-	private BigDecimal id;
-	@Column(name = "NOMBRE")
+    @Column(name = "idCatalogo")
+	private Long id;
+	@Column(name = "nombreCatalogo")
 	private String nombre;
-	@Column(name = "VALOREXTRA")
-	private String valor;
-	@Column(name = "IDESTADO")
-	private Long idEstado;
+	@Column(name = "estadoCatalogo")
+	private boolean estadoCatalogo;
+	@Column(name = "estadoActivo")
+	private boolean estadoActivo;
 	
 	
-	public Catalogo(String nombre, String valor, Long idEstado) {
+	public Catalogo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Catalogo(Long id, String nombre, boolean estadoCatalogo, boolean estadoActivo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.estadoCatalogo = estadoCatalogo;
+		this.estadoActivo = estadoActivo;
+	}
+	public Catalogo( String nombre, boolean estadoCatalogo, boolean estadoActivo) {
 		super();
 		this.nombre = nombre;
-		this.valor = valor;
-		this.idEstado = idEstado;
+		this.estadoCatalogo = estadoCatalogo;
+		this.estadoActivo = estadoActivo;
 	}
-	public Catalogo() {
-
-	}
-	public BigDecimal getId() {
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(BigDecimal id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -46,23 +55,24 @@ public class Catalogo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getValor() {
-		return valor;
+	public boolean isEstadoCatalogo() {
+		return estadoCatalogo;
 	}
-	public void setValor(String valor) {
-		this.valor = valor;
+	public void setEstadoCatalogo(boolean estadoCatalogo) {
+		this.estadoCatalogo = estadoCatalogo;
 	}
-	public Long getIdEstado() {
-		return idEstado;
+	public boolean isEstadoActivo() {
+		return estadoActivo;
 	}
-	public void setIdEstado(Long idEstado) {
-		this.idEstado = idEstado;
+	public void setEstadoActivo(boolean estadoActivo) {
+		this.estadoActivo = estadoActivo;
 	}
 	@Override
 	public String toString() {
-		return "Catalogo [id=" + id + ", nombre=" + nombre + ", valor=" + valor + ", idEstado=" + idEstado + "]";
+		return "Catalogo [id=" + id + ", nombre=" + nombre + ", estadoCatalogo=" + estadoCatalogo + ", estadoActivo="
+				+ estadoActivo + "]";
 	}
 	
 	
-
+	
 }
