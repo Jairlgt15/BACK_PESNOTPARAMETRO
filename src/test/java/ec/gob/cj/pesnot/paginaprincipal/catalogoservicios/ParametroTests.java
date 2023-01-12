@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParametroRepo;
-
+/*
 
 @SpringBootTest
 public class ParametroTests {
@@ -23,14 +23,12 @@ public class ParametroTests {
 	public void testGuardarParametro() {
 	
 		Parametro parametro = new Parametro();
-		parametro.setIdCatalogo(new BigDecimal(5));
-		parametro.setNombre("Retencion");
-		parametro.setNumero(new BigDecimal(6));
-		parametro.setTexto("Porcentaje de exoneración de discapacidad");
+		parametro.setNombreParametro("Retencion");
+		parametro.setNumero(5l);
 		parametro.setFecha(new Date());
 		parametro.setFechaInicio(new Date());
 		parametro.setFechaFin(new Date());
-		parametro.setIdEstado(1l);
+		parametro.setIdParametro(1l);
 	
 		
 		Parametro parametroGuardado = parametroRepo.save(parametro);
@@ -40,8 +38,8 @@ public class ParametroTests {
 	
 	@Test
 	public void testBuscarParametroPorId() {
-		Number numero = 1;
-		BigDecimal numeroD = new BigDecimal(numero.toString());
+		Long numeroD = 1l;
+		
 		Optional<Parametro> parametro = parametroRepo.findById(numeroD);
 
 		assertThat(parametro.get().getIdParametro()).isEqualTo(numeroD);

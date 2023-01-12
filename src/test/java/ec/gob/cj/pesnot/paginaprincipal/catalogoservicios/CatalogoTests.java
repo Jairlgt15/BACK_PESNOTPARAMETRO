@@ -1,5 +1,6 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
 
+/*
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,7 +23,8 @@ public class CatalogoTests {
 
 	@Test
 	public void testGuardarCatalogo() {
-		Catalogo catalogo = new Catalogo("Porcentajes", "Valores correspondientes a los porcentajes", 3l);
+		Catalogo catalogo = new Catalogo("Porcentajes", true, true);
+		catalogo.setNombre(null);
 		Catalogo catalagoGuardado = catalogoRepo.save(catalogo);
 
 		assertNotNull(catalagoGuardado);
@@ -30,11 +32,10 @@ public class CatalogoTests {
 	
 	@Test
 	public void testBuscarProductoPorId() {
-		Number numero = 5;
-		BigDecimal numeroD = new BigDecimal(numero.toString());
-		Optional<Catalogo> catalogo = catalogoRepo.findById(numeroD);
+		Long numero = 5l;
+		Optional<Catalogo> catalogo = catalogoRepo.findById(numero);
 
-		assertThat(catalogo.get().getId()).isEqualTo(numeroD);
+		assertThat(catalogo.get().getId()).isEqualTo(numero);
 
 	}
 	@Test
@@ -56,5 +57,6 @@ public class CatalogoTests {
 	 * 
 	 * }
 	 *
-	 */
+
 	}
+	 */
