@@ -1,13 +1,12 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,8 +49,13 @@ public class CatalogoControlador{
 		return catalagoSrvicesImp.catalogoById(id);
 	}
 	@GetMapping("/catalogos/like/{likeNombre}")
-	public List<Catalogo> obtenerActosLike(@PathVariable("likeNombre") String nombre) {
+	public List<Catalogo> obtenerCatalogosLike(@PathVariable("likeNombre") String nombre) {
 		return catalagoSrvicesImp.getCatalogosLike(nombre);
+	}
+	
+	@GetMapping("/catalogos/nombre/{likeNombre}")
+	public Catalogo obtenerCatalogosNombre(@PathVariable("likeNombre") String nombre) {
+		return catalagoSrvicesImp.getCatalogoNombre(nombre);
 	}
 
 

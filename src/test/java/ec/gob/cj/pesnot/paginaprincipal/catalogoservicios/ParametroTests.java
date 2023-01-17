@@ -1,4 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
+/*
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -13,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParametroRepo;
-/*
+
 
 @SpringBootTest
 public class ParametroTests {

@@ -1,6 +1,5 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.controlador;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,8 +43,14 @@ public class ParametroControlador {
 	public List<Parametro> getParametrosLike(@PathVariable ("nombre") String nombre) {
 		return parametroSrvicesImp.getParametrosLike(nombre);
 	}
-	@GetMapping("/parametros/Catalogo/{nombre}")
-	public List<Parametro> getParametrosByCatalogo(@PathVariable ("nombre") String id) {
+	
+	@GetMapping("/parametros/nombre/{nombre}")
+	public Parametro getParametrosNombre(@PathVariable ("nombre") String nombre) {
+		return parametroSrvicesImp.getParametrosNombre(nombre);
+	}
+	
+	@GetMapping("/parametros/Catalogo/{id}")
+	public List<Parametro> getParametrosByCatalogo(@PathVariable ("id") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
 	}
 	

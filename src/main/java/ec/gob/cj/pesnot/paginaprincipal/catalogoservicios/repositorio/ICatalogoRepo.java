@@ -2,7 +2,6 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio;
 
 
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,6 +19,10 @@ public interface ICatalogoRepo extends JpaRepository<Catalogo,Long> {
 	
 	@Query(nativeQuery = true,value="SELECT * FROM CATALOGO c WHERE c.nombreCatalogo LIKE :nombre%")
 	List<Catalogo> getCatalogosLike(@Param("nombre") String nombre);
+	
+	@Query(nativeQuery = true,value="SELECT TOP 1 * FROM Catalogo where nombreCatalogo= :nombre")
+	Catalogo getCatalogoByNombre(@Param("nombre") String nombre);
+	
 	
 
 }

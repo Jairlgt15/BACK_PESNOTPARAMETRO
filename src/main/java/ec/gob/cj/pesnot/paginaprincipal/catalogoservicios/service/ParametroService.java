@@ -1,11 +1,8 @@
 package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +11,6 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.repositorio.IParametroRepo;
 
 @Service
-@AllArgsConstructor
 public class ParametroService {
 	@Autowired
 	IParametroRepo iParametroRepo;
@@ -57,6 +53,18 @@ public class ParametroService {
 			return listaLike;
 			
 		}
+	 
+	 public Parametro getParametrosNombre(String nombre) {
+			
+			
+			Parametro nombreParametro = new Parametro();
+			
+			nombreParametro=iParametroRepo.getParametrosByNombre(nombre);
+			
+			return nombreParametro;
+			
+		}
+	 
 	 public List<Parametro> getParametrosByCatalogo(String idCatalogo){
 		 List<Parametro> listaByCatalogo = new ArrayList<>();
 		 listaByCatalogo=iParametroRepo.getParametrosByCatalogo(idCatalogo);

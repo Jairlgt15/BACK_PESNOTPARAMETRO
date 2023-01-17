@@ -2,9 +2,24 @@ package ec.gob.cj.pesnot.paginaprincipal.catalogoservicios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @SpringBootApplication
-public class BackParametrosApplication {
+@EnableJpaAuditing
+@EnableWebMvc
+@EnableSwagger2
+
+public class BackParametrosApplication extends SpringBootServletInitializer{
+	
+	@Override
+	public SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	    return builder.sources(BackParametrosApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackParametrosApplication.class, args);
