@@ -18,7 +18,7 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParametroServi
 
 @RestController
 @RequestMapping("/Parametro")
-@CrossOrigin(originPatterns = "http://localhost:4200")
+@CrossOrigin(originPatterns = "*")
 public class ParametroControlador {
 	
 	@Autowired
