@@ -17,44 +17,44 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Parametro;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.ParametroService;
 
 @RestController
-@RequestMapping("/Parametro")
-@CrossOrigin(originPatterns = "*")
+@RequestMapping("/parametros")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ParametroControlador {
 	
 	@Autowired
 	ParametroService parametroSrvicesImp;
 
-	@GetMapping("/parametros")
+	@GetMapping("")
 	public List<Parametro> listarParametros() {
 		return parametroSrvicesImp.listarParametro();
 	}
 
-	@PostMapping("/save")
+	@PostMapping("")
 	public Parametro guardarActos(@RequestBody Parametro objParametro) {
-
 		return parametroSrvicesImp.guardarParametro(objParametro);
 	}
-
-	@GetMapping("/parametros/{id}")
+	
+	@GetMapping("/{id}")
 	public Optional<Parametro> obtenerParametroById(@PathVariable("id") Long id) {
 		return parametroSrvicesImp.parametroById(id);
 	}
-	@GetMapping("/parametros/like/{nombre}")
+
+	@GetMapping("like/{nombre}")
 	public List<Parametro> getParametrosLike(@PathVariable ("nombre") String nombre) {
 		return parametroSrvicesImp.getParametrosLike(nombre);
 	}
-	
-	@GetMapping("/parametros/nombre/{nombre}")
+
+	@GetMapping("nombre/{nombre}")
 	public Parametro getParametrosNombre(@PathVariable ("nombre") String nombre) {
 		return parametroSrvicesImp.getParametrosNombre(nombre);
 	}
 	
-	@GetMapping("/parametros/Catalogo/{id}")
+	@GetMapping("porCatalogo/{id}")
 	public List<Parametro> getParametrosByCatalogo(@PathVariable ("id") String id) {
 		return parametroSrvicesImp.getParametrosByCatalogo(id);
 	}
 	
-	@DeleteMapping("/parametros/eliminar/{id}")
+	@DeleteMapping("eliminar/{id}")
 	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = parametroSrvicesImp.eliminar(id);
 	        if (ok){

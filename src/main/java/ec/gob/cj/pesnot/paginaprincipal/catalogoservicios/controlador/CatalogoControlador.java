@@ -18,48 +18,46 @@ import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.modelo.Catalogo;
 import ec.gob.cj.pesnot.paginaprincipal.catalogoservicios.service.CatalogoService;
 
 
-
 @RestController
-@RequestMapping("/Catalogo")
-@CrossOrigin(originPatterns = "http://localhost:4200")
+@RequestMapping("/catalogos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CatalogoControlador{
 	@Autowired
 	CatalogoService catalagoSrvicesImp;
 
 	// trea eb formato json
-	@GetMapping("/catalogos")
+	@GetMapping("")
 	public List<Catalogo> listarCatalogos() {
 		return catalagoSrvicesImp.listarCatalogos();
 	}
-	@GetMapping("/catalogosActivos")
+	
+	@GetMapping("/activos")
 	public List<Catalogo> listarCatalogosActivos() {
 		List<Catalogo> result = null;
 		result = catalagoSrvicesImp.listarCatalogosActivos();
 		return result;
 	}
 
-	@PostMapping("/save")
+	@PostMapping("")
 	public Catalogo guardarActos(@RequestBody Catalogo objCatalogo) {
-
 		return catalagoSrvicesImp.guardarCatalogo(objCatalogo);
 	}
 
-	@GetMapping("/catalogos/{id}")
+	@GetMapping("/{id}")
 	public Optional<Catalogo> obtenerCatalogosPorId(@PathVariable("id") Long id) {
 		return catalagoSrvicesImp.catalogoById(id);
 	}
-	@GetMapping("/catalogos/like/{likeNombre}")
+	@GetMapping("/like/{likeNombre}")
 	public List<Catalogo> obtenerCatalogosLike(@PathVariable("likeNombre") String nombre) {
 		return catalagoSrvicesImp.getCatalogosLike(nombre);
 	}
-	
-	@GetMapping("/catalogos/nombre/{likeNombre}")
+
+	@GetMapping("/nombre/{likeNombre}")
 	public Catalogo obtenerCatalogosNombre(@PathVariable("likeNombre") String nombre) {
 		return catalagoSrvicesImp.getCatalogoNombre(nombre);
 	}
 
-
-	@DeleteMapping("/catalogos/eliminar/{id}")
+	@DeleteMapping("/eliminar/{id}")
 	    public String eliminarPorId(@PathVariable("id") Long id){
 	        boolean ok = catalagoSrvicesImp.eliminar(id);
 	        if (ok){
@@ -67,7 +65,5 @@ public class CatalogoControlador{
 	        }else{
 	            return "No pudo eliminar el usuario con id" + id;
 	        }
-	
-
-}
-}
+		}
+	}
