@@ -29,7 +29,7 @@ public class Parametro {
 	private Catalogo idCatalogo;
 	@Column(name="numeroVersionParametroCatalogo")
 	private Long numero;
-	@Column(name="descripcionParametroCatologo")
+	@Column(name="descripcionParametroCatalogo")
 	private String descripcion;
 	@Column(name="fechaParametroCatalogo")
 	private Date fecha;
